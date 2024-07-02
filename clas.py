@@ -1,7 +1,5 @@
 # Solution to 2078 Minimum Cost Homecoming of a Robot in a Grid
 # https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/
-def sumInclusive(array, startRange, endRange):
-    return sum(array[startRange:endRange+1]) 
 
 class Solution(object):
 
@@ -24,23 +22,17 @@ class Solution(object):
         #           This same logic applies to going right
         if (startPos[0]<homePos[0]):
             total_cost += sum(rowCosts[startPos[0]+1:homePos[0]+1])
-            print("down", total_cost)
         #go up      In this case the stupidity of sum() is advantegous, because if we count sum(rowCosts[homePos[0]:startPos[0]]) 
         #           it automatically doesnt count the "last" step (aka startPos[0]) 
         #           This same logic applied to going left
         if (startPos[0]>homePos[0]):
             total_cost += sum(rowCosts[homePos[0]:startPos[0]])
-            print("up", total_cost)
         #go left
         if (startPos[1]>homePos[1]):
             total_cost += sum(colCosts[homePos[1]:startPos[1]])
-            print("left", total_cost)
         #go right
         if (startPos[1]<homePos[1]):
             total_cost += sum(colCosts[startPos[1]+1:homePos[1]+1])
-            print("right", total_cost)
 
         print(total_cost)
         return total_cost
-    
-    
